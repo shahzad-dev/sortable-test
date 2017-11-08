@@ -35,7 +35,7 @@ class App extends React.Component {
 
 _handle_OnChange = ( event ) => {
     //this.setState({count: this.state.count + 1});
-    console.log(this.props.viewer.hobbies.edges.length);
+    //console.log(this.props.viewer.hobbies.edges.length);
     this.context.relay.commitUpdate(
         new hobbyAddMutation( {
           id: `${this.props.viewer.hobbies.edges.length + 1}`,
@@ -46,6 +46,7 @@ _handle_OnChange = ( event ) => {
     this.setState({count: this.props.viewer.hobbies.edges.length });
  }
  _handle_ListChange = (groupName, items) => {
+   console.log('Group', groupName, items)
    let groups = this.state.groups;
    for(let index in groups) {
       if(groups[index].name === groupName) groups[index].list = items;
@@ -53,7 +54,7 @@ _handle_OnChange = ( event ) => {
    this.setState({groups});
  }
  _handle_ListChange_2 = (...args) => {
-   console.log(args);
+   //console.log(args);
  }
   render() {
     return (
